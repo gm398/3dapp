@@ -19,6 +19,10 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="application/css/custom.css">
 
+      <script src="https://cdn.jsdelivr.net/npm/three@0.140.0/build/three.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/three@0.140.0/examples/js/controls/OrbitControls.min.js"></script>
+      <script src="https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/loaders/GLTFLoader.js"></script>
+
     <!-- Link in some fonts — Not used because we finally installed the fonts
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'> 
@@ -58,16 +62,16 @@
             <ul class="navbar-nav ml-auto"> <!-- Use mx-auto to align centre, default to left or use mr-auto -->
               <!-- nothing changed from Lab 5 -->
               <li class="nav-item">
-                <a class="nav-link" href="#" id="navHome">Home</a>
+                <a class="nav-link" href="#" id="navHome" data-toggle="popover" data-trigger="hover" data-placement="bottom" title="Home" data-content="Home Page">Home</a>
               </li>
               <!-- Added navAbout ID, do we use this? -->
               <li class="nav-item">
-                  <a id="navAbout" class="nav-link" href="#" data-toggle="popover" data-trigger="hover" data-placement="bottom" title="About Web 3D Applications" data-content="3D Apps is a final year and postgraduate module ...">About</a>
+                  <a id="navAbout" class="nav-link" href="#" data-toggle="popover" data-trigger="hover" data-placement="bottom" title="Deeper Understanding" data-content="Deeper Understanding">Deeper Understanding</a>
               </li>
           
               <!-- Replace Dropdown from lab 5 with single nav lnk to models -->
               <li class="nav-item">
-                <a id="navModels" class="nav-link"  href="#" data-toggle="popover" data-trigger="hover" data-placement="bottom" title="X3D Models" data-content="There are three X3D models: Coke, Sprite and Pepper">Models</a>
+                <a id="navModels" class="nav-link"  href="#" data-toggle="popover" data-trigger="hover" data-placement="bottom" title="Model Viewer" data-content="View the 3D models">Models</a>
               </li>
               <li class="nav-item">
                   <a class="nav-link" href="#" data-toggle="modal" data-target="#contactModal" id="navContact">Contact</a>
@@ -89,7 +93,51 @@
 
 
         <!-- Start X3D models and 3D Image Gallery -->
-        <div id="models">
+        <div id="modelsPg">
+
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a href="#" id="cokeModel">Coke Model</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" id="appletiserModel">Appletiser Model</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" id="fantaModel">Fanta Model</a>
+                </li>
+
+            </ul>
+
+            <div id="models"></div>
+
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a href="#" id="spinX">Rotate X</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" id="spinY">Rotate Y</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" id="spinZ">Rotate Z</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" id="stopAnimations">Stop Animations</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" id="camFront">Camera Front</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" id="camTop">Camera Top</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" id="camSide">Camera Side</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" id="wireframe">Toggle Wireframe</a>
+                </li>
+
+            </ul>
+
         </div> <!-- End X3D Models and Gallery -->
     
        
@@ -102,7 +150,7 @@
     <nav id="footerColor" class="navbar navbar-expand-sm footer">
         <div class="container-fluid">   
             <div class="navbar-text float-left copyright">
-                <p><span class="align-baseline">&copy 2020 3D Apps | <a href="javascript:changeLook()">Restyle</a> | <a href="javascript:changeBack()">Reset</a></span></p>
+                <p><span class="align-baseline">198830 Web 3D Applications | <a href="javascript:changeLook()">Restyle</a> | <a href="javascript:changeBack()">Reset</a></span></p>
             </div>
         </div>
     </nav> 
@@ -123,7 +171,7 @@
             <!-- Modal body -->
             <div class="modal-body">
                 <p>Dr Martin White, Chichester 1, 126, Email: m.white@sussex.ac.uk</p>
-            </div>
+            </div>f
             
             <!-- Modal footer -->
             <div class="modal-footer">
@@ -149,22 +197,23 @@
 
     <!-- Custom JavaScript code for your 3d App -->
     <!-- Also, intialises popovers-->
-    <script src="application/js/custom.js" crossorigin="anonymous"></script>
+    <script type="module" src="application/js/custom.js" crossorigin="anonymous"></script>
 
-    <!-- JavaScript to swap for SPA and restyle
+    <!-- JavaScript to swap for SPA and restyle-->
     <script src="application/js/swap_restyle.js"></script>
- -->
-    <!-- JavaScript and PHP based Gallery generator  
+
+    <!-- JavaScript and PHP based Gallery generator
     <script src="application/js/gallery_generator.js"></script>
--->
-    <!-- JQuery code to get content data from a backend JSON file -->
-    <script src="application/js/getJsonData.js"></script>
+    -->
+
 
     <!-- JavaScript model interactions -->
     <script src="application/js/modelInteractions.js"></script>
 
     <!--fancyBox3 => http://fancyapps.com/fancybox/3/ -->
     <script src="application/js/jquery.fancybox.min.js"></script>
+
+
 
   </body>
 </html>

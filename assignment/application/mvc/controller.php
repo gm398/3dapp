@@ -1,11 +1,18 @@
 <?php
-//include_once "../model/model.php";
+include_once "../model/model.php";
 $pageURI = $_SERVER['REQUEST_URI'];
 $pageURI = substr($pageURI,strrpos($pageURI,'controller.php')+15);
 // $pageURI = str_replace(".php", "", $pageURI);
 header("Content-Type: application/json"); #returning json data
-if(is_string($pageURI)){
-echo $pageURI();
+
+if (strpos($pageURI, "/")) {
+    $method = explode("/", $pageURI);
+    echo json_encode($method[0]($method[1]));
+}
+else {
+    if(is_string($pageURI)){
+        echo ($pageURI());
+    }
 }
 
 function home()
@@ -32,3 +39,18 @@ function getAboutPage(){
 function getContactPage(){
     return file_get_contents('https://users.sussex.ac.uk/~gm398/3dapp/assignment/application/model/contact.php');
 }
+
+function getModelUrl($model)
+{
+    return getModel($model);
+}
+
+/*function getCokeModel(){
+    return getModel('fanta');
+}
+function getAppletiserModel(){
+    return getModel('appletiser');
+}
+function getFantaModel(){
+    return getModel('fanta');
+}*/

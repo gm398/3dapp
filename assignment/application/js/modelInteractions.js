@@ -1,68 +1,90 @@
-//adapted from example code 'benskitchen.com'
+/*
+	import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.121.1/build/three.module.js';
+	import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.121.1/examples/jsm/controls/OrbitControls.js';
 
-var spinning = false;
 
-function spin()
-{
-	spinning = !spinning;
-	document.getElementById('model__RotationTimer').setAttribute('enabled', spinning.toString());
-}
+var scene = new THREE.Scene();
 
-function stopRotation()
-{
-	spinning = false;
-	document.getElementById('model__RotationTimer').setAttribute('enabled', spinning.toString());
-}
+var camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
 
-function animateModel()
-{
-    if(document.getElementById('model__RotationTimer').getAttribute('enabled')!= 'true')
-        document.getElementById('model__RotationTimer').setAttribute('enabled', 'true');
-    else
-        document.getElementById('model__RotationTimer').setAttribute('enabled', 'false');
-}
+var renderer = new THREE.WebGLRenderer({antialias: true});
 
-function wireframe()
-{
-	var e = document.getElementById('model');
-	e.runtime.togglePoints(true);
-	e.runtime.togglePoints(true);
-}
+renderer.setClearColor('#e5e5e5');
+renderer.setSize(window.innerWidth,window.innerHeight);
 
-var lightOn = true;
+document.body.appendChild(renderer.domElement);
 
-function headlight()
-{
-	lightOn = !lightOn;
-	document.getElementById('model__headlight').setAttribute('headlight', lightOn.toString());
-}
+window.addEventListner('resize', () =>{
+	renderer.setSize(window.innerWidth, window.innerHeight);
+	camera.aspect = window.innerWidth / window.innerHeight;
 
-function cameraFront()
-{
-	document.getElementById('model__CameraFront').setAttribute('bind', 'true');
-}
+	camera.updateProjectMatrix();
+})
 
-function cameraBack()
-{
-	document.getElementById('model__CameraBack').setAttribute('bind', 'true');
-}
 
-function cameraLeft()
-{
-	document.getElementById('model__CameraLeft').setAttribute('bind', 'true');
-}
 
-function cameraRight()
-{
-	document.getElementById('model__CameraRight').setAttribute('bind', 'true');
-}
 
-function cameraTop()
-{
-	document.getElementById('model__CameraTop').setAttribute('bind', 'true');
-}
 
-function cameraBottom()
-{
-	document.getElementById('model__CameraBottom').setAttribute('bind', 'true');
-}
+let mixer;
+
+const clock = new THREE.Clock();
+const container = document.getElementById( 'container' );
+
+const stats = new Stats();
+container.appendChild( stats.dom );
+
+const renderer = new THREE.WebGLRenderer( { antialias: true } );
+renderer.setPixelRatio( window.devicePixelRatio );
+renderer.setSize( window.innerWidth, window.innerHeight );
+renderer.outputEncoding = THREE.sRGBEncoding;
+container.appendChild( renderer.domElement );
+
+const pmremGenerator = new THREE.PMREMGenerator( renderer );
+
+const scene = new THREE.Scene();
+scene.background = new THREE.Color( 0xbfe3dd );
+scene.environment = pmremGenerator.fromScene( new RoomEnvironment(), 0.04 ).texture;
+
+const camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 1, 100 );
+camera.position.set( 5, 2, 8 );
+
+const controls = new OrbitControls( camera, renderer.domElement );
+controls.target.set( 0, 0.5, 0 );
+controls.update();
+controls.enablePan = false;
+controls.enableDamping = true;
+
+const dracoLoader = new DRACOLoader();
+dracoLoader.setDecoderPath( 'js/libs/draco/gltf/' );
+
+const loader = new GLTFLoader();
+loader.setDRACOLoader( dracoLoader );
+loader.load( 'models/gltf/LittlestTokyo.glb', function ( gltf ) {
+
+	const model = gltf.scene;
+	model.position.set( 1, 1, 0 );
+	model.scale.set( 0.01, 0.01, 0.01 );
+	scene.add( model );
+
+	mixer = new THREE.AnimationMixer( model );
+	mixer.clipAction( gltf.animations[ 0 ] ).play();
+
+
+
+}, undefined, function ( e ) {
+
+	console.error( e );
+
+} );
+
+
+window.onresize = function () {
+
+	camera.aspect = window.innerWidth / window.innerHeight;
+	camera.updateProjectionMatrix();
+
+	renderer.setSize( window.innerWidth, window.innerHeight );
+
+};
+*/
+

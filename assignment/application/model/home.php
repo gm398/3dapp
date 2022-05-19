@@ -1,5 +1,5 @@
 <?php
-include_once "./config.php";
+include_once "../model/config.php";
 $dbhandle = NULL;
 $cardData = NULL;
 $titleData = NULL;
@@ -41,7 +41,7 @@ $titleData = $stmt->fetchAll(PDO::FETCH_ASSOC);
                   { ?>
             <div class="col-sm-4">
                 <div class="card">
-                    <a href="<?php echo $cardData[$i]["imgURL"]; ?>" data-fancybox data-caption="My 3D <?php echo $cardData[$i]["title"]?> Render">
+                    <a href="<?php echo $cardData[$i]["renderIMG"]; ?>" data-fancybox data-caption="My 3D <?php echo $cardData[$i]["title"]?> Render">
                         <img id = "cardImage" class="card-img-top img-fluid img-thumbnail" src="<?php echo $cardData[$i]["imgURL"]; ?>" alt="Coca Cola">
                     </a>
                     <div class="card-body">
