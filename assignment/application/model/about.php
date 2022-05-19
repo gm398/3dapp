@@ -13,4 +13,10 @@
     <li>
         Javascript to create interactive buttons to animate and show wireframe of 3D models
     </li>
+    <li>
+        blender files are in 3dapp/assignment/blender_files
+    </li>
+    <li>
+        Github link <a href = "https://github.com/gm398/3dapp">GitHub Link</a>
+    </li>
 </ul> <!-- End home page -->
