@@ -3,7 +3,6 @@ var counter = 0;
 $(document).ready(function() {
 	
 	selectPage();
-	selectModel();
 
 	function selectPage() {
 
@@ -42,7 +41,7 @@ function changeLook() {
 			break;
 		case 2:
 			document.getElementById('bodyColor').style.backgroundColor = '#FF6600';
-			document.getElementById('headerClor').style.backgroundColor = '#FF9999';
+			document.getElementById('headerColor').style.backgroundColor = '#FF9999';
 			document.getElementById('footerColor').style.backgroundColor = '#996699';
 			break;
 		case 3:
