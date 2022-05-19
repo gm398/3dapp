@@ -164,14 +164,14 @@
             
             <!-- Modal Header -->
             <div class="modal-header">
-                <h4 class="modal-title">3D App Contact Details</h4>
+                <h4 class="modal-title">198830 contact details</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             
             <!-- Modal body -->
             <div class="modal-body">
-                <p>Dr Martin White, Chichester 1, 126, Email: m.white@sussex.ac.uk</p>
-            </div>f
+                <p>Github link <a href = "https://github.com/gm398/3dapp">GitHub Link</a></p>
+            </div>
             
             <!-- Modal footer -->
             <div class="modal-footer">
